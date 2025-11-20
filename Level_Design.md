@@ -157,6 +157,7 @@
 ```mermaid
 flowchart TD
 
+    %% --- MAIN FLOW ---
     A[Start Screen]
     B[הכנסת שמות]
     C[בחירת תפקידים]
@@ -164,18 +165,33 @@ flowchart TD
     E[Tutorial]
     F[מבוך]
 
-    G[סיום המבוך בהצלחה]
-    H[כישלון במבוך]
-    I[נסה שוב]
-    J[משחק חדש]
-    K[סגור]
+    %% --- FIRST QUESTION ---
+    F --> Q1{אספתי את כל המפתחות?}
 
+    %% --- Q1 = YES ---
+    Q1 -- כן --> Q2A{דרכתי על יותר פצצות מלבבות?}
+
+    Q2A -- לא --> WIN[ניצחון במשחק]
+    Q2A -- כן --> LOSE[הפסד במשחק]
+
+    %% --- Q1 = NO ---
+    Q1 -- לא --> Q2B{דרכתי על יותר פצצות מלבבות?}
+
+    Q2B -- לא --> R[חזרה למבוך]
+    Q2B -- כן --> LOSE2[הפסד במשחק]
+
+    %% --- MERGED END STATE ---
+    WIN --> END[סיום]
+    LOSE --> END
+    LOSE2 --> END
+
+    %% --- END OPTIONS ---
+    END --> TRY[נסה שוב]
+    END --> NEW[משחק חדש]
+    END --> CLOSE[סגור]
+
+    %% --- START PATH ---
     A --> B --> C --> D --> E --> F
-    F --> G
-    F --> H
-    H --> I
-    H --> J
-    H --> K
 
     %% --- COLORS ---
     style A fill:#a3d8ff,stroke:#1b70a6,stroke-width:2px
@@ -185,13 +201,27 @@ flowchart TD
     style E fill:#e6ccff,stroke:#7b33cc,stroke-width:2px
     style F fill:#ffd8b1,stroke:#d67a00,stroke-width:2px
 
-    style G fill:#b2ffb2,stroke:#33aa33,stroke-width:2px
-    style H fill:#ffb2b2,stroke:#cc3333,stroke-width:2px
+    style Q1 fill:#fff3b0,stroke:#c7b200,stroke-width:2px
+    style Q2A fill:#fff3b0,stroke:#c7b200,stroke-width:2px
+    style Q2B fill:#fff3b0,stroke:#c7b200,stroke-width:2px
 
-    style I fill:#b3e1ff,stroke:#3377aa,stroke-width:2px
-    style J fill:#fff0b3,stroke:#d4a300,stroke-width:2px
-    style K fill:#e0e0e0,stroke:#666,stroke-width:2px
+    style R fill:#e8f7ff,stroke:#3a7fa0,stroke-width:2px
+
+    style WIN fill:#b2ffb2,stroke:#33aa33,stroke-width:2px
+    style LOSE fill:#ffc7c7,stroke:#cc3333,stroke-width:2px
+    style LOSE2 fill:#ffc7c7,stroke:#cc3333,stroke-width:2px
+
+    style END fill:#dcdcff,stroke:#5555aa,stroke-width:2px
+
+    style TRY fill:#b3e1ff,stroke:#3377aa,stroke-width:2px
+    style NEW fill:#fff0b3,stroke:#d4a300,stroke-width:2px
+    style CLOSE fill:#e0e0e0,stroke:#666,stroke-width:2px
+
+
+
+
 ```
+
 
 
 
