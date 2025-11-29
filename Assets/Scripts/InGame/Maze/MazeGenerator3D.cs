@@ -90,8 +90,12 @@ public class MazeGenerator3D : MonoBehaviour
         grid = new bool[width, height];
 
         for (int x = 0; x < width; x++)
-          for (int y = 0; y < height; y++)
-            grid[x, y] = true;
+        {
+            for (int y = 0; y < height; y++)
+            {
+                grid[x, y] = true;
+            }
+        }
 
         DFS(1, 1);
     }
