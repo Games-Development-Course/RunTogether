@@ -1,117 +1,91 @@
-# MazeMates
+<div dir="rtl">
 
-A cooperative 2D asymmetric maze-navigation game built in Unity 6.
+# 🌀 MazeMates
+### אחד רואה, השני עושה – אבל מנצחים רק ביחד!  
 
-## 🎮 Overview
+![alt text](images/logo.png)
 
-MazeMates is an asymmetric 2-player puzzle adventure.\
-One player is the **Traveller**, physically moving inside the maze; the
-other is the **Navigator**, who sees the full map and guides the
-Traveller through puzzles, doors, and traps.
+---
 
-The project includes: - Traveller controller (movement, collisions,
-camera follow) - Navigator HUD with dynamic puzzle preview - Door system
-with puzzle logic - In-game puzzle interactions (draggable pieces &
-slots) - Win/Lose scene logic
+## 🎮 על המשחק
 
-## 🧩 Game Loop
+הוא משחק מחשב שיתופי שנועד לפתח **תקשורת, שיתוף פעולה, וויסות וקבלת החלטות משותפת** בין בני נוער על הרצף האוטיסטי בתפקוד גבוה.  
 
-1.  Player enters the maze scene.
-2.  Traveller activates pads, solves puzzles, and opens doors.
-3.  Reaching the Exit triggers **WinGame** scene.
-4.  Wrong puzzle attempts or failure conditions trigger **GameOver**.
+המשחק מציב את המשתתפים במבוך, שבו כל אחד רואה **חלק אחר של העולם** ועליהם לעבוד יחד כדי למצוא את הדרך החוצה.  
+אין דרך לנצח לבד — רק אם מתקשרים, מתאמים ומקשיבים זה לזה.  
 
-## ✨ Core Features
+החוויה מבוססת על תנועה, תיאום זמן־אמת, ופתרון בעיות קבוצתי דרך מחשב, עם שילוב של אלמנטים קוגניטיביים, חזותיים וחברתיים.
 
-### Traveller Gameplay
+---
 
--   Arrow-key movement\
--   Automatic collision blocking\
--   Starts at maze Entrance\
--   Reaching Exit → loads **WinGame** scene
+## 🧩 איך זה עובד?
 
-### Navigator HUD
+- בתחילת המשחק בוחרים את התפקידים ורמת הקושי, 
+- המשחק כולל **מבוך** ובתוכו חידות וחפצים לאיסוף.
+- בנוסף, המבוך כולל מכשולים כמו **פצצות/מוקשים**, הפזורים בחלק מהמסלולים.  
+דריכה על פצצה מורידה לב אחד מתוך מאגר לבבות משותף לשני השחקנים — ואם הלבבות יורדים לאפס, המשחק מסתיים בהפסד קבוצתי.
+- על מנת לנצח יש להגיע לדלת הסיום במבוך כאשר אספנו את כל החפצים ונשארנו עם לפחות לבד אחד.
 
--   Shows puzzle images when relevant\
--   Appears only when Traveller activates puzzle zones\
--   Fully controlled via Door/Puzzle systems
+- כל שחקן רואה **פרספקטיבה אחרת**:  
 
-### Door System
+  - 🧭 **המטייל (Explorer)** – רואה רק את סביבתו הקרובה במבוך ומזיז את הדמות.  
+  - 🗺️ **הנווט (Navigator)** – רואה את מפת המבוך המלאה, ומכווין את המטייל.  
+  
 
-Each door supports: - Toggle doors\
-- Puzzle doors\
-- Pads/pressure plates\
-- Target transforms\
-- Correct/incorrect validation
+-
+-
+- ההצלחה תלויה בתקשורת: לדוגמה, דלת נפתחת רק אם המטייל עומד על הסימון הנכון.  
+- לאחר איסוף כל החפצים, פתיחת הדלתות בדרך והגעה ליציאה מהמבוך מנצחים במשחק. 
 
-### Puzzle System
+---
 
--   Draggable pieces\
--   Matching slot system\
--   Slot detection by name or ID\
--   Correct placement logic\
--   Progress tracking\
--   Reset on wrong action
+## 🧠 למה זה טוב?
 
-## 📁 Project Structure
+המשחק נבנה במיוחד עבור סביבה טיפולית־שיקומית, ומטרתו לתרגל בצורה מהנה את הכישורים הבאים:
 
-    Assets/
-     ├── Scripts/
-     │    ├── InGame/
-     │    │     ├── Maze/
-     │    │     │     ├── MazeGenerator.cs
-     │    │     │     └── MazeTilemapSetup.cs
-     │    │     ├── Traveller/
-     │    │     │     ├── PlayerMovement1P.cs
-     │    │     │     └── CameraFollow.cs
-     │    │     ├── Doors/
-     │    │     │     ├── DoorController.cs
-     │    │     │     ├── PuzzleDoor.cs
-     │    │     │     ├── PadTrigger.cs
-     │    │     │     └── DoorControllerEditor.cs
-     │    │     ├── Puzzles/
-     │    │     │     ├── DraggablePiece.cs
-     │    │     │     ├── Slot.cs
-     │    │     │     └── PuzzleManager.cs
-     │    │     └── Game/
-     │    │           ├── GameCompletionManager.cs
-     │    │           └── WinTrigger.cs
-     │    └── UI/
-     │          ├── NavigatorHUD.cs
-     │          └── SceneButtons.cs
-     │
-     ├── Scenes/
-     │      ├── MazeLevel.unity
-     │      ├── WinGame.unity
-     │      └── GameOver.unity
-     │
-     ├── Art/
-     │      ├── Tiles/
-     │      ├── PuzzleSprites/
-     │      └── UI/
-     │
-     └── Prefabs/
-            ├── PlayerTraveller.prefab
-            ├── NavigatorHUD.prefab
-            ├── Door.prefab
-            ├── PuzzleDoor.prefab
-            └── Pad.prefab
+- 📣 תקשורת בין־אישית והקשבה לאחרים  
+- 💬 העברת מידע מדויק וברור  
+- ⏱️ ויסות לחץ וקבלת החלטות בזמן אמת  
+- 🧭 עבודה בתיאום ופתרון בעיות בצוות  
+- 🎯 ריכוז וסבלנות בתהליכים מתמשכים  
 
-## 🕹 Controls
+---
 
-**Traveller** - **← ↑ ↓ →** --- Move\
-- Collides with maze geometry\
-- Activates pads and puzzle zones
+## 💻 פרטים טכניים
 
-**Navigator** - Interacts through HUD puzzle only
+- **פלטפורמה:** מחשב אישי (2 מסכים, 2 מקלדות, 2 עכברים) 
+- **מספר שחקנים:** 2 (באותו חלל פיזי)  
+- **חיבור אינטרנט:** לא נדרש  
+- **סגנון:** תלת מימדי (2D Top View + First Person)  
+- **משך שלב ממוצע:** כ־3–5 דקות  
+- **שפה:** עברית  
+- **ממשק:** מקלדת + עכבר  
 
-## 🙌 Credits
-
-Developed by **Aviv Neeman** with intensive assistance from ChatGPT
-during a full week of scripting, debugging, collisions, puzzles, doors,
-and HUD implementation.
+---
 
 
-## Links
+## 🧩 מטרות חינוכיות־שיקומיות
 
-https://gamedevteamx.itch.io/coreloopweek4avivn
+- חיזוק מיומנויות תקשורת הדדית  
+- פיתוח הקשבה והובלה לפי תור  
+- עידוד שיח רגוע ופתרון קונפליקטים  
+- תרגול ויסות חושי וקוגניטיבי במצבי לחץ  
+- בניית אמון ותחושת הצלחה משותפת  
+
+---
+
+## 👥 צוות הפיתוח
+
+**מדעי המחשב:**  
+- אביב נאמן  
+- אביב תורג’מן  
+- שגית מלכה  
+
+**ריפוי בעיסוק:**  
+- אוראל דן
+- רותם לוי 
+- שירה נכטשטרן
+
+
+
+</div>
