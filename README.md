@@ -87,5 +87,10 @@
 - שירה נכטשטרן
 
 
+## ITCH.IO
+current published implementation on itch.io:
+
+https://gamedevteamx.itch.io/coreloopweek4avivn
+
 
 </div>
