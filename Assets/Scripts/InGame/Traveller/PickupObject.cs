@@ -65,6 +65,7 @@ public class PickupObject : MonoBehaviour
                 HUDManager.Instance.FlashTravellerLife();
 
 
+
                 hud.UpdateHUDs();
 
                 if (gm.lives <= 0)
