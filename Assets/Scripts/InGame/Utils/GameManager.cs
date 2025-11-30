@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour
 
     public int totalKeysInLevel = 0;
 
+    private void Start()
+    {
+        HUDManager.Instance?.UpdateHUD();
+    }
+
     private void Awake()
     {
         if (Instance == null)

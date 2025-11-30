@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7641549232084203021, guid: 3d5582b809c6bb64b86e90de83fffa08, type: 3}
+  - {fileID: 2100000, guid: 9e4008e8ee19fa242ae569d3d96dad03, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -154,9 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc45f2efe57f59741996460d0743164b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickupObject
-  type: 0
+  type: 1
   customMessage: 
-  messageColor: {r: 1, g: 1, b: 1, a: 1}
+  messageColor: {r: 1, g: 0.96911144, b: 0, a: 1}
   messageFont: {fileID: 0}
   messageDuration: 1.5
 --- !u!136 &5163468884856293735

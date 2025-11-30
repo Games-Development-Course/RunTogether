@@ -22,7 +22,7 @@ public class ExitDoor : IDoor
 
         opened = true;
 
-        // ���� ������ ������ - ����� �����
-        controller.StartSlidingIntoWall();
+        controller.GetComponentInChildren<DoorDissolver>()?.TriggerDissolve();
+        
     }
 }

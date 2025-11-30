@@ -119,7 +119,7 @@ Transform:
   m_GameObject: {fileID: 4364261202197041537}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0099, y: 1, z: 0.51}
+  m_LocalPosition: {x: 0, y: 1, z: 0.51}
   m_LocalScale: {x: 1.1196901, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -200,8 +200,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1.0066141}
+  m_Center: {x: 0, y: 0, z: -0.0033072084}
 --- !u!114 &5533597301854378325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 1587421335623147897}
   - component: {fileID: 3317199916796056993}
   - component: {fileID: 7639036424916210039}
+  - component: {fileID: 9061450424549482133}
   m_Layer: 8
   m_Name: DoorModel
   m_TagString: Door
@@ -310,7 +311,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 0.15}
+  m_LocalScale: {x: 1.12, y: 2, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8213216545360170572}
@@ -393,6 +394,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9061450424549482133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154145809417291412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7688701d36fd51241af57d511d9a232a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorDissolver
+  dissolveTime: 1.2
 --- !u!1 &8559443613435696601
 GameObject:
   m_ObjectHideFlags: 0

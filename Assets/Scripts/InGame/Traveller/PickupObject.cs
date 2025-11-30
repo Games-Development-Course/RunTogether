@@ -62,7 +62,9 @@ public class PickupObject : MonoBehaviour
 
             case PickupType.Bomb:
                 gm.lives--;
-                hud.FlashLifeIcons();
+                HUDManager.Instance.FlashTravellerLife();
+
+
                 hud.UpdateHUDs();
 
                 if (gm.lives <= 0)
