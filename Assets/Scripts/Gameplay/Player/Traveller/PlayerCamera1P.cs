@@ -14,38 +14,29 @@ public class PlayerCamera1P : NetworkBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+        if (!IsOwner)
+        {
+            enabled = false; // ❗ הסקריפט לא עובד אצל שחקנים אחרים
+            return;
+        }
 
-    public void LockCameraForSeconds(float duration)
-    {
-        lockDuration = duration;
-        cameraLocked = true;
-        timer = 0f;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
-        // מניעת NRE אם GameManager עדיין לא קיים
-        if (GameManager.Instance == null)
-            return;
+        if (!IsOwner) return;              // ❗ רק הבעלים מזיז את המצלמה
+        if (GameManager.Instance == null) return;
+        if (playerBody == null) return;
+        if (GameManager.Instance.inPuzzle) return;
 
-        // אם זה מסך Navigator בלי playerBody → לא לזוז
-        if (playerBody == null)
-            return;
-
-        // בזמן חידה המצלמה לא זזה
-        if (GameManager.Instance.inPuzzle)
-            return;
-
-        // שלב נעילה הראשוני
         if (cameraLocked)
         {
             timer += Time.deltaTime;
 
             xRotation = 0f;
-            transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-            playerBody.rotation = Quaternion.Euler(0f, 0f, 0f);
+            transform.localRotation = Quaternion.identity;
+            playerBody.rotation = Quaternion.identity;
 
             if (timer >= lockDuration)
                 cameraLocked = false;
@@ -53,7 +44,7 @@ public class PlayerCamera1P : NetworkBehaviour
             return;
         }
 
-        // מצב מצלמה רגיל
+        // input
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
@@ -62,5 +53,11 @@ public class PlayerCamera1P : NetworkBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+    public void LockCameraForSeconds(float duration)
+    {
+        lockDuration = duration;
+        cameraLocked = true;
+        timer = 0f;
     }
 }
